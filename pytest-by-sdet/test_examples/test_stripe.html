@@ -1,0 +1,145 @@
+ <!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stripe Subscription</title>
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        form { max-width: 400px; margin: auto; }
+        #card-element { border: 1px solid #ccc; padding: 10px; margin-top: 10px; }
+        #card-errors { color: red; margin-top: 10px; }
+        button { margin-top: 20px; padding: 10px 20px; background: blue; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h2>Subscribe to Our Plan</h2>
+
+    <form id="payment-form">
+        <div id="card-element">Stripe Card Input</div>
+        <div id="card-errors"></div>
+        <button type="submit">Subscribe</button>
+    </form>
+
+    <script>
+        const stripe = Stripe("pk_live_51NjxGJKqX669nwDWIs2Q1Vc99aC95zAyCAlqSP8XYvCB2nVcTDzWRja5WrokB6Y1HMtFybK4cG9HUeazwkgzZFxz00C7H2hyhd");  // Replace with your Stripe **Publishable Key**
+        const elements = stripe.elements();
+        const card = elements.create("card");
+        card.mount("#card-element");
+
+        document.getElementById("payment-form").addEventListener("submit", async function(event) {
+            event.preventDefault();
+            
+            const { paymentMethod, error } = await stripe.createPaymentMethod({
+                type: "card",
+                card: card,
+            });
+
+            if (error) {
+                document.getElementById("card-errors").textContent = error.message;
+            } else {
+                console.log("Payment Method ID:", paymentMethod.id);
+
+                // Send PaymentMethodID to Backend
+                fetch("http://localhost:5000/subscribe", {  // Replace with actual server URL
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        customer_id: "cus_RwhgL0A4S9PtXr",  // Replace with actual customer ID
+                        subscription_plan_id: "price_1Nx2JoKqX669nwDWK61MBUM8",  // Replace with actual plan ID
+                        payment_method_id: paymentMethod.id
+                    })
+                })
+                .then(response => response.json())
+                .then(data => alert(data.message))
+                .catch(error => console.error("Error:", error));
+            }
+        });
+    </script>
+
+</body>
+</html>  -->
+<!----> 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stripe Subscription</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+        }
+        #card-element {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            margin-top: 10px;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+        #payment-id {
+            margin-top: 10px;
+            padding: 10px;
+            background: #f8f9fa;
+            border: 1px solid #ccc;
+            word-break: break-all;
+        }
+    </style>
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+
+<div class="container">
+    <h2>Enter Card Details</h2>
+    <div id="card-element"></div>
+    <button id="submit" class="btn">Submit Payment</button>
+    <p>Payment ID (Copy this for backend):</p>
+    <div id="payment-id"></div>
+</div>
+
+<script>
+    const stripe = Stripe("pk_live_51NjxGJKqX669nwDWIs2Q1Vc99aC95zAyCAlqSP8XYvCB2nVcTDzWRja5WrokB6Y1HMtFybK4cG9HUeazwkgzZFxz00C7H2hyhd"); // Replace with your Stripe Publishable Key
+    const elements = stripe.elements();
+    const card = elements.create("card");
+    card.mount("#card-element");
+
+    document.getElementById("submit").addEventListener("click", async () => {
+        const { paymentMethod, error } = await stripe.createPaymentMethod({
+            type: "card",
+            card: card,
+        });
+
+        if (error) {
+            alert("Error: " + error.message);
+        } else {
+            document.getElementById("payment-id").innerText = paymentMethod.id;
+            alert("Payment Method Created: Copy the Payment ID and use it in the backend.");
+        }
+    });
+</script>
+
+</body>
+</html>

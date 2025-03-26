@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reCAPTCHA v2 - Get g-recaptcha-response</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+
+    <form id="captcha-form">
+        <div class="g-recaptcha" data-sitekey="6Ldfas0qAAAAADh3Zf71rpPo4gmy10B-uvlBGYPN"></div>
+        <br>
+        <button type="button" onclick="getRecaptchaResponse()">Get g-recaptcha-response</button>
+    </form>
+
+    <p><strong>g-recaptcha-response:</strong></p>
+    <textarea id="recaptcha-response" rows="5" cols="50"></textarea>
+
+    <script>
+        function getRecaptchaResponse() {
+            var response = document.getElementById("g-recaptcha-response").value;
+            document.getElementById("recaptcha-response").value = response;
+
+            if (!response) {
+                alert("Please complete the CAPTCHA first!");
+            }
+        }
+    </script>
+
+</body>
+</html>

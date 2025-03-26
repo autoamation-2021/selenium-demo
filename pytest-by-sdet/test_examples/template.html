@@ -1,0 +1,105 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sample PDF</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h1 { color: blue; }
+        .dynamic-content { font-size: 18px; color: green; }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("dynamic").innerText = "JavaScript Loaded!";
+        });
+    </script>
+</head>
+<body>
+    <h1>HTML to PDF with JavaScript & CSS</h1>
+    <p class="dynamic-content" id="dynamic">Loading...</p>
+</body>
+</html> -->
+<!-- ############################################################################ -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Export to PDF</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #content {
+            width: 800px;  /* Fixed width */
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ccc;
+        }
+        h2 {
+            color: #333;
+        }
+        #downloadBtn {
+            margin-top: 20px;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            background: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+</style>
+</head>
+<body>
+ 
+    <div id="content">
+<h2>PDF Export Example</h2>
+<p>This content will be exported as a PDF with the same width and height on mobile, tablet, and desktop.</p>
+<img src="https://via.placeholder.com/600x300" alt="Sample Image" width="100%">
+</div>
+ 
+    <button id="downloadBtn">Download PDF</button>
+ 
+    <script>
+        document.getElementById("downloadBtn").addEventListener("click", async () => {
+            const { jsPDF } = window.jspdf;
+ 
+            const content = document.getElementById("content");
+ 
+            const canvas = await html2canvas(content, {
+                scale: window.devicePixelRatio,  // Ensures high quality
+                useCORS: true
+            });
+ 
+            const imgData = canvas.toDataURL("image/png");
+ 
+            // Get actual dimensions
+            const pdfWidth = canvas.width;
+            const pdfHeight = canvas.height;
+ 
+            // Convert pixels to mm (1 px = 0.264583 mm)
+            const pdfWidthMM = pdfWidth * 0.264583;
+            const pdfHeightMM = pdfHeight * 0.264583;
+ 
+            // Create PDF with the same dimensions
+            const pdf = new jsPDF({
+                orientation: pdfWidthMM > pdfHeightMM ? "landscape" : "portrait",
+                unit: "mm",
+                format: [pdfWidthMM, pdfHeightMM] // Set PDF size equal to content size
+            });
+ 
+            pdf.addImage(imgData, "PNG", 0, 0, pdfWidthMM, pdfHeightMM);
+            pdf.save("exported.pdf");
+        });
+</script>
+ 
+</body>
+</html>

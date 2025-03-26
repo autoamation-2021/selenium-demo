@@ -1,0 +1,200 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Cessna Lifeline Veterinary Hospital Hosur Main Road"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.65115759999999,
+          12.8732996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ADVITHA PET HOSPITAL Electronic City"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6657412,
+          12.8537446
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Brunos Pet Paradise and boarding"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6500987,
+          12.8411227
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Lucky Paws Veterinary Hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6507332,
+          12.8387888
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Vetic Pet Clinic Electronic City"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6476443,
+          12.8462666
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Cat Exotica -Buy purebred kitten for Sale in Bangalore, Persian Kitten, Himalayan Cat, Ragdoll Cat, Siberian Kittens"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.660316,
+          12.8316196
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Abha Enterprises"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6838716,
+          12.8428197
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "My Pet's Choice Electronic city"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.662843,
+          12.8196316
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Lil Paws"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.66288879999999,
+          12.8195732
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Purrfectcatteryhomes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6654736,
+          12.8182743
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "SAVI PET HOSPITAL AND PET STORE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.65497789999999,
+          12.8785115
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Oasis Pet Care & Hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6938299,
+          12.8352697
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Furends for life"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6436344,
+          12.8740821
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Shadows Pet Store Care and Clinic"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6413238,
+          12.8741194
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "PETS TIME PET STORE & PET CLINIC"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.67213799999999,
+          12.8836369
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+import weasyprint
+
+# HTML content as a string
+html_content = """
+<html>
+    <head>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+            h1 {
+                color: #2C3E50;
+            }
+            p {
+                font-size: 14px;
+                color: #34495E;
+            }
+            .highlight {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Sample PDF Report</h1>
+        <p>This is a <span class="highlight">sample</span> paragraph with HTML content.</p>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+    </body>
+</html>
+"""
+
+# Convert HTML to PDF
+pdf_file = "sample_report.pdf"
+weasyprint.HTML(string=html_content).write_pdf(pdf_file)
+
+print(f"PDF saved as {pdf_file}")
